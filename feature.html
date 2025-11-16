@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features - Institute of Technology University of Moratuwa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
+      color: #333;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .features-header {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .university-brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border: 2px solid #1a5276;
+      overflow: hidden;
+    }
+
+    .logo img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .university-info h1 {
+      font-size: 1rem;
+      color: #1a5276;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .university-info p {
+      font-size: 0.75rem;
+      color: #2e86c1;
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: #1a5276;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+      padding: 8px 15px;
+      border-radius: 20px;
+    }
+
+    .nav-menu a:hover {
+      color: #2e86c1;
+      background: rgba(26, 82, 118, 0.1);
+    }
+
+    .nav-menu a.active {
+      background: #1a5276;
+      color: white;
+    }
+
+    /* Hero Section */
+    .features-hero {
+      text-align: center;
+      padding: 60px 20px;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
+    }
+
+    .hero-badge h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 50px 20px;
+      border-radius: 20px;
+      margin: 0 auto 60px;
+      max-width: 1000px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ffd700;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      color: white;
+    }
+
+    /* Features Grid */
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: white;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      font-weight: 600;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 10px 25px rgba(26, 82, 118, 0.4);
+    }
+
+    .feature-card h3 {
+      font-size: 1.4rem;
+      color: #1a5276;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .feature-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .feature-list i {
+      color: #2e86c1;
+      font-size: 0.9rem;
+    }
+
+    .feature-btn {
+      background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(26, 82, 118, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(26, 82, 118, 0.6);
+    }
+
+    /* Category Sections */
+    .category-section {
+      margin-bottom: 60px;
+    }
+
+    .category-title {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 60px 20px;
+      border-radius: 20px;
+      margin: 60px auto;
+      max-width: 1000px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .testimonial-text::before {
+      content: '"';
+      font-size: 3rem;
+      color: #1a5276;
+      position: absolute;
+      top: -15px;
+      left: -10px;
+      opacity: 0.3;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .author-info h4 {
+      color: #1a5276;
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin: 60px auto;
+      max-width: 800px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-title {
+      color: white;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .cta-subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta-btn.primary {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      color: #1a5276;
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    }
+
+    .cta-btn.secondary {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Footer */
+    .features-footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .university-motto {
+      font-style: italic;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-menu {
+        gap: 15px;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="features-header">
+    <div class="header-container">
+      <div class="university-brand">
+        <div class="logo">
+          <img src="images/itum-logo.png" alt="ITUM Logo">
+        </div>
+        <div class="university-info">
+          <h1>INSTITUTE OF TECHNOLOGY</h1>
+          <p>UNIVERSITY OF MORATUWA</p>
+        </div>
+      </div>
+      
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="features.html" class="active">Features</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="features-hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <h2>ITUM DIGITAL LIBRARY SYSTEM</h2>
+      </div>
+      <h1 class="hero-title">Discover Amazing Features</h1>
+      <p class="hero-subtitle">
+        Explore the comprehensive suite of tools and resources designed to enhance 
+        your academic journey at Institute of Technology University of Moratuwa.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">50,000+</div>
+        <div class="stat-label">Digital Resources</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Access Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5,000+</div>
+        <div class="stat-label">Active Students</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Research Databases</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Features -->
+  <div class="features-container">
+    <h2 class="section-title">Core Library Features</h2>
+    
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h3>Digital Book Access</h3>
+        <p>Access thousands of textbooks, research papers, and academic journals from any device, anywhere.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> 50,000+ eBooks</li>
+          <li><i class="fas fa-check"></i> 100+ Academic Journals</li>
+          <li><i class="fas fa-check"></i> Mobile App Access</li>
+          <li><i class="fas fa-check"></i> Offline Reading</li>
+        </ul>
+        <button class="feature-btn">
+          <i class="fas fa-search"></i>
+          EXPLORE COLLECTION
+        </button>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>Smart Search Engine</h3>
+        <p>Find exactly what you need with our advanced AI-powered search and filtering system.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> AI-Powered Recommendations</li>
+          <li><i class="fas fa-check"></i> Advanced Filters</li>
+          <li><i class="fas fa-check"></i> Citation Search</li>
+          <li><i class="fas fa-check"></i> Related Resources</li>
+        </ul>
+        <button class="feature-btn">
+          <i class="fas fa-play"></i>
+          TRY SEARCH
+        </button>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Reading Analytics</h3>
+        <p>Track your reading progress, set goals, and get insights into your learning patterns.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Progress Tracking</li>
+          <li><i class="fas fa-check"></i> Reading Statistics</li>
+          <li><i class="fas fa-check"></i> Goal Setting</li>
+          <li><i class="fas fa-check"></i> Achievement Badges</li>
+        </ul>
+        <button class="feature-btn">
+          <i class="fas fa-chart-bar"></i>
+          VIEW ANALYTICS
+        </button>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Collaborative Learning</h3>
+        <p>Study together with classmates, share resources, and collaborate on projects.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Study Groups</li>
+          <li><i class="fas fa-check"></i> Resource Sharing</li>
+          <li><i class="fas fa-check"></i> Discussion Forums</li>
+          <li><i class="fas fa-check"></i> Peer Reviews</li>
+        </ul>
+        <button class="feature-btn">
+          <i class="fas fa-user-friends"></i>
+          JOIN COMMUNITY
+        </button>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <h3>Smart Notifications</h3>
+        <p>Stay updated with personalized alerts for due dates, new resources, and announcements.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Due Date Reminders</li>
+          <li><i class="fas fa-check"></i> New Resource Alerts</li>
+          <li><i class="fas fa-check"></i> Library News</li>
+          <li><i class="fas fa-check"></i> Custom Preferences</li>
+        </ul>
+        <button class="feature-btn">
+          <i class="fas fa-cog"></i>
+          MANAGE ALERTS
+        </button>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Mobile Experience</h3>
+        <p>Access all library features on-the-go with our responsive mobile interface and dedicated app.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Responsive Design</li>
+          <li><i class="fas fa-check"></i> Mobile App</li>
+          <li><i class="fas fa-check"></i> Push Notifications</li>
+          <li><i class="fas fa-check"></i> Offline Access</li>
+        </ul>
+        <button class="feature-btn">
+          <i class="fas fa-download"></i>
+          GET MOBILE APP
+        </button>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <h2 class="section-title">What Students Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            The digital library has transformed how I study. Having access to all my textbooks on my phone is incredible!
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">SD</div>
+            <div class="author-info">
+              <h4>Sandaruwan Herath</h4>
+              <p>Computer Science, 3rd Year</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            The search feature saves me hours of research time. I can find relevant papers in seconds!
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">AM</div>
+            <div class="author-info">
+              <h4>Amaya Perera</h4>
+              <p>Engineering, 2nd Year</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            Collaborative features helped our group project tremendously. Sharing resources has never been easier.
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">RS</div>
+            <div class="author-info">
+              <h4>Rashmi Silva</h4>
+              <p>Business Studies, 4th Year</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2 class="cta-title">Ready to Get Started?</h2>
+      <p class="cta-subtitle">
+        Join thousands of ITUM students who are already enhancing their academic experience 
+        with our comprehensive digital library system.
+      </p>
+      <div class="cta-buttons">
+        <a href="signup.html" class="cta-btn primary">
+          <i class="fas fa-user-plus"></i>
+          CREATE ACCOUNT
+        </a>
+        <a href="login.html" class="cta-btn secondary">
+          <i class="fas fa-sign-in-alt"></i>
+          SIGN IN NOW
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="features-footer">
+    <div class="university-motto">"Advancing Knowledge Through Technology"</div>
+    <div class="copyright">&copy; 2024 Institute of Technology University of Moratuwa. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animate stats counter
+      const statNumbers = document.querySelectorAll('.stat-number');
+      
+      statNumbers.forEach(stat => {
+        const target = parseInt(stat.textContent.replace(/,/g, ''));
+        let current = 0;
+        const increment = target / 50;
+        const duration = 2000;
+        const stepTime = duration / 50;
+        
+        const updateNumber = () => {
+          if (current < target) {
+            current += increment;
+            stat.textContent = Math.ceil(current).toLocaleString() + (stat.textContent.includes('+') ? '+' : '');
+            setTimeout(updateNumber, stepTime);
+          } else {
+            stat.textContent = target.toLocaleString() + (stat.textContent.includes('+') ? '+' : '');
+          }
+        };
+        
+        // Start animation when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              updateNumber();
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        
+        observer.observe(stat);
+      });
+
+      // Feature card hover effects
+      const featureCards = document.querySelectorAll('.feature-card');
+      featureCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Feature button interactions
+      const featureBtns = document.querySelectorAll('.feature-btn');
+      featureBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const featureName = this.closest('.feature-card').querySelector('h3').textContent;
+          alert(`🚀 ${featureName} feature would launch here!`);
+        });
+      });
+
+      // Check authentication for navigation
+      checkAuth();
+    });
+
+    // Logout function
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('userInitials');
+      window.location.href = 'index.html';
+    }
+
+    // Check login status on page load
+    function checkAuth() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      if (isLoggedIn && navMenu) {
+        // User is logged in - show user navigation
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        let navHTML = `
+          <li><a href="index.html" ${currentPage === 'index.html' ? 'class="active"' : ''}>Home</a></li>
+          <li><a href="books.html" ${currentPage === 'books.html' ? 'class="active"' : ''}>Books</a></li>
+          <li><a href="dashboard.html" ${currentPage === 'dashboard.html' ? 'class="active"' : ''}>Dashboard</a></li>
+          <li><a href="profile.html" ${currentPage === 'profile.html' ? 'class="active"' : ''}>Profile</a></li>
+          <li><a href="index.html" onclick="logout()">Logout</a></li>
+        `;
+        
+        navMenu.innerHTML = navHTML;
+      }
+    }
+  </script>
+</body>
+</html>
